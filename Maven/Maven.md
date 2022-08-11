@@ -187,8 +187,58 @@ mvn help:describe -Dcmd=compile
 
 생성한 Maven Project가 있는 경로 입력하여, import하기
 
-### 7. 메이븐 프로젝트 이클립스에 로드하기
+### 7. 메이븐(Maven) 강의 7강 - 컴파일 플러그인으로 JDK 버전 변경하기
 
 <hr>
 
 [참고 자료(Youtube-뉴렉처): 메이븐(Maven) 강의 7강 - 컴파일 플러그인으로 JDK 버전 변경하기 ](https://www.youtube.com/watch?v=_6H0E49UGoM&list=PLq8wAnVUcTFWRRi_JWLArMND_PnZM6Yja&index=7)
+
+**이클립스 porm.xml에서 수정하기**
+
+해당 내용을 본인의 java version에 맞게 지우고 저장하기
+
+```xml
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.source>1.7</maven.compiler.source>
+    <maven.compiler.target>1.7</maven.compiler.target>
+  </properties>
+  ```
+
+1.7 ➡ 1.8로 수정
+
+프로젝트 우클릭 후, Maven클릭 후, Update Project 누르기
+
+### 8. 메이븐(Maven) 강의 8강 - 웹 프로젝트로 변경하기
+
+<hr>
+
+[참고 자료(Youtube-뉴렉처): 메이븐(Maven) 강의 8강 - 웹 프로젝트로 변경하기](https://www.youtube.com/watch?v=VPVMqA8tFRw&list=PLq8wAnVUcTFWRRi_JWLArMND_PnZM6Yja&index=8)
+
+pom.xml 수정
+
+```xml
+<modelVersion>4.0.0</modelVersion>
+  <groupId>com.ToDoList</groupId>
+  <artifactId>ToDoList</artifactId>
+  <packaging>war</packaging>
+  <version>1.0-SNAPSHOT</version>
+  <name>ToDoList</name>
+  <!-- FIXME change it to the project's website -->
+  <url>http://www.ToDoList.com</url>
+```
+
+pom.xml을 수정하고 나면 webapp 폴더가 생긴다. 하위 폴더로 WEB-INF를 만든다.
+
+이후, C:\Downloads\apache-tomcat-8.5.81\webapps\ROOT\WEB-INF 디렉토리에 있는web.xml을 복사하여 WEB-INF 폴더 아래 붙여넣기
+
+### 9. 메이븐(Maven) 강의 8강 - 서블릿/JSP 라이브러리 설정하기
+
+<hr>
+
+index.jsp를 webapp 폴더 안에 생성하면 에러가 발생한다.
+
+프로젝트 우클릭 Build Path에서 Add Library해서 Tomcat8.5를 추가하면 해결된다.
+
+[Tomcat버전으로 Library 확인하기](https://mvnrepository.com/artifact/org.apache.tomcat/tomcat-jsp-api)
+
